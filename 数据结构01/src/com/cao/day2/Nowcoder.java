@@ -11,7 +11,7 @@ class ListNode {
 }
 public class Nowcoder {
     public class Partition {
-        public ListNode partition(ListNode pHead, int x) {
+            public ListNode partition(ListNode pHead, int x) {
             ListNode small = null;
             ListNode big = null;
             //小于等于x的最后一个节点
