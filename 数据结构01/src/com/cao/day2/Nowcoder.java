@@ -51,8 +51,6 @@ public class Nowcoder {
                 smallLast.next = big;
                 return small;
             }
-
-
         }
     }
 
