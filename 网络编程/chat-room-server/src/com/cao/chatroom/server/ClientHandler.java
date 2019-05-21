@@ -39,7 +39,7 @@ public class ClientHandler implements Runnable {
                 if(line.startsWith("group:")) {
                     //TODO 群聊功能
                     //group: hello
-                    String[] argments = line.split(":");
+                    //String[] segments = line.split(":");
                     String message = line.split(":")[1];
 
                     groupChat(message);
@@ -104,7 +104,7 @@ public class ClientHandler implements Runnable {
         // 表示当前客户端注册的名称 和连接的socket
         this.name = name;
         SOCKET_MAP.put(name,this.client);
-        sendMessage(client, "恭喜"+name+"消息发送成功");
+        sendMessage(client, "恭喜"+name+"注册成功");
         printOnlineClient();
     }
 

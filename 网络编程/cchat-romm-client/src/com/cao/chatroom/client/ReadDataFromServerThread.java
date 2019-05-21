@@ -18,7 +18,8 @@ public class ReadDataFromServerThread extends Thread {
             InputStream  in = socket.getInputStream();
             Scanner scanner = new Scanner(in);
             while (true) {
-                scanner.nextLine();//阻塞操作
+                String data = scanner.nextLine();//阻塞操作
+                System.out.println(data);
 
             }
         } catch (IOException e) {

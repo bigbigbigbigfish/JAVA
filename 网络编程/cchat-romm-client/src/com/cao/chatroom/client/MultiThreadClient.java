@@ -12,9 +12,6 @@ public class MultiThreadClient {
 
 
 
-
-
-
             // 写
             new WriteDataFromServerThread(socket).start();
         } catch (IOException e) {
