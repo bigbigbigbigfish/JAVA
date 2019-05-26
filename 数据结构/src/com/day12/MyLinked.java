@@ -51,7 +51,7 @@ public class MyLinked implements ICLinked {
 
     @Override
     public boolean addindex(int index, int data) {
-
+return true;
     }
 
     private Node searchPrev(int key) {
