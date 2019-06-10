@@ -16,12 +16,12 @@ public class Train {
                 A[i] = scanner.nextInt();
             }
 
-            int start = 0;
-            ArrayList<int[]> result = new ArrayList<>();
-            Permutation(A,start,n,result);
-            for( int[] out: result) {
-
-            }
+//            int start = 0;
+//            ArrayList<int[]> result = new ArrayList<>();
+//            Permutation(A,start,n,result);
+//            for( int[] out: result) {
+//
+//            }
         }
     }
 }
