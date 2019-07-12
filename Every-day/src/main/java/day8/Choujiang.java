@@ -14,8 +14,7 @@ public class Choujiang {
     }
 
 
-
-    public static float pro(int n) {
+    private static float pro(int n) {
         if( n == 0) {
             return 1;
         } else {
@@ -24,7 +23,7 @@ public class Choujiang {
     }
 
 
-    public static float count(int n) {
+    private static float count(int n) {
         if(n == 1) {
             return 0;
         } else if( n == 2) {
