@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
-            <groupId></groupId>
+            <groupId>mysql</groupId>
             <artifactId></artifactId>
         </dependency>
 

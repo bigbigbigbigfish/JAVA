@@ -1,0 +1,22 @@
+Mybatis事例：
+ 1， 加入mybatis的jar包到工程中去 导入到pom.xml文件中
+ 2,  加入mybatis的核心配置文件sqlMapConfig.xml
+            *在该配置文件中，获取和数据库相关的信息
+                driver, url, username, password
+ 3,  加入映射文件到项目中去
+            *UserInfo.xml  和数据库进行映射的
+        <select id="queryUserInfoById" parameterType="int" resultType="com.ming.po.UserInfo">
+             select * from userinfo where userid = #{myId};
+        </select>
+
+ 4,  在sqlMapConfig.xml文件中关联映射文件(UserInfo.xml)
+      <!--引入mybatis的映射文件-->
+        <mappers>
+            <mapper resource="mapper/UserInfo.xml"/>
+        </mappers>
+
+ 5, 连接数据库进行测试
+        * SqlSessionFactory  : 一个SqlSessionFactory对应一个数据库，是重量级的
+        对象，不要经常性的创建。[创建SqlSession]
+        * SqlSession : 可以理解成Connection，用来对数据库进行CURD的操作。当然，
+        使用的是面向对象的方式 [执行SQL语句]
