@@ -8,8 +8,11 @@
 
     <select id="queryUserInfoById" parameterType="int" resultType="com.ming.po.UserInfo">
         select * from userinfo where userid = #{myId};
+        
     </select>
 
+    
+    <select id=""
 
 
 

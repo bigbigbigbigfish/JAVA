@@ -1,0 +1,35 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.cao.mapper.UserInfoMapper">
+
+    <select id="queryUserById" parameterType="int" resultType="com.cao.po.UserInfo">
+        select * from userinfo where userid=#{myid}
+    </select>
+
+    <!--
+        #{} : 占位符
+        ${} : 拼接字符串
+    -->
+    <select id="queryUserByName" parameterType="java.lang.String" resultType="com.cao.po.UserInfo">
+        select * from userinfo where username like '%${value}%'
+    </select>
+
+    <!--******************************************************************-->
+
+    <insert id="addUserInfo" parameterType="com.cao.po.UserInfo">
+        insert into userinfo (username) value (#{userName})
+    </insert>
+
+    <update id="updateUserInfo" parameterType="com.cao.po.UserInfo">
+        update userinfo set username=#{userName} where userid=#{userId}
+    </update>
+
+    <delete id="delUserInfo" parameterType="int">
+        delete from userinfo where userid=#{myid}
+    </delete>
+
+</mapper>

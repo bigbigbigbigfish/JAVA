@@ -35,8 +35,6 @@ public abstract class AbstractJdbcTemplate {
     private ResultSet resultSet;
 
 
-
-
     //加载驱动
     private void loadDriver() throws ClassNotFoundException {
 
