@@ -20,16 +20,4 @@ public class ShellSort {
             }
         }
     }
-
-    public static void shellSort(int[] array) {
-        int[] drr = {5,3,1};
-        for (int i = 0; i < drr.length; i++) {
-            shell(array,i);
-
-
-        }
-    }
-    private static void shell(int[] array, int gap){
-
-    }
 }

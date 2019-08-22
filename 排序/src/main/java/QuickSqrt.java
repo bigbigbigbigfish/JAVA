@@ -14,7 +14,6 @@ public class QuickSqrt {
             // 需要记录排序的下标
             int low = start;
             int high = end;
-
             //循环找比标准数大的数和比标准数小的数
             while (low < high) {
                 //右边的数字比标准数大
