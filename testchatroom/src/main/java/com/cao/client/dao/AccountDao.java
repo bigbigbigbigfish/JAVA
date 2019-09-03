@@ -16,7 +16,7 @@ public class AccountDao extends BasedDao {
             String sql ="insert  into user(username, password, brief) "+"value (?,?,?)";
             statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1,user.getUserName());
-            statement.setString(2,user.getPassword());
+            statement.setString(2,DigestUtils.md5Hex(user.getPassword()));
             statement.setString(3,user.getBrief());
             int rows = statement.executeUpdate();
             if(rows == 1) {
@@ -24,7 +24,7 @@ public class AccountDao extends BasedDao {
             }
 
         } catch (SQLException e) {
-            System.out.println("用户注册失败");
+            System.err.println("用户注册失败");
             e.printStackTrace();
         } finally {
             closeResources(connection,statement);
@@ -32,25 +32,24 @@ public class AccountDao extends BasedDao {
         return false;
     }
 
-    public User userLogin(String username, String password) {
-
+    public User userLogin(String userName, String password) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             connection = getConnection();
-            String sql ="select * from user where username = ?and password =?";
+            String sql ="SELECT * FROM user WHERE username =?AND password =?";
             statement = connection.prepareStatement(sql);
-            statement.setString(1,username);
+            statement.setString(1,userName);
             statement.setString(2,DigestUtils.md5Hex(password));
             resultSet = statement.executeQuery();
             if(resultSet.next()) {
                 User user = getUser(resultSet);
                 return user;
             }
-        }catch (SQLException e1) {
-            System.out.println("用户登录失败");
-            e1.printStackTrace();
+        }catch (SQLException e) {
+            System.err.println("用户登录失败");
+            e.printStackTrace();
         }finally {
             closeResources(connection,statement,resultSet);
         }
@@ -65,11 +64,6 @@ public class AccountDao extends BasedDao {
         user.setBrief(resultSet.getString("brief"));
         return user;
     }
-
-
-
-
-
 
 
 

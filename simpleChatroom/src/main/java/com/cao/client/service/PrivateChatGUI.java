@@ -66,6 +66,7 @@ public class PrivateChatGUI {
     }
 
     public JFrame getFrame(){
+
         return frame;
     }
 }

@@ -3,6 +3,7 @@ package com.cao.client.dao;
 
 import com.cao.client.entity.User;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
