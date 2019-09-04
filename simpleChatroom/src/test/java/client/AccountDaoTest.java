@@ -13,7 +13,7 @@ public class AccountDaoTest {
     @Test
     public void userReg() {
         User user = new User();
-        user.setUserName("fish");
+        user.setUserName("fishe");
         user.setPassWord("123");
         user.setBrief("呵呵呵呵");
         boolean flag = accountDao.userReg(user);
@@ -22,7 +22,7 @@ public class AccountDaoTest {
 
     @Test
     public void userLogin()  {
-        String username = "fish";
+        String username = "fishe";
         String password = "123";
         User user = accountDao.userLogin(username,password);
         System.out.println(user);

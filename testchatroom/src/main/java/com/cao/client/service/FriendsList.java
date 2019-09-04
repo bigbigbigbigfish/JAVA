@@ -4,6 +4,8 @@ import com.cao.util.CommUtils;
 import com.cao.vo.MessageVO;
 
 import javax.swing.*;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -23,7 +25,6 @@ public class FriendsList {
     private String userName;
     private Set<String> users;
     private ConnectToServer connectToServer;
-    private JFrame jFrame;
 
 
 
@@ -124,7 +125,7 @@ public class FriendsList {
         this.users = users;
         this.connectToServer = connectToServer;
 
-        JFrame frame = new JFrame("userName");
+        frame = new JFrame("userName");
         frame.setContentPane(friendsPan);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400,300);
@@ -139,24 +140,25 @@ public class FriendsList {
         daemonThread.start();
     }
     //加载所有在线的用户信息
-    public void loadUsers() {
+    public void loadUsers(){
         JLabel[] userLabels = new JLabel[users.size()];
-
         JPanel friends = new JPanel();
+        //set遍历
         friends.setLayout(new BoxLayout(friends,BoxLayout.Y_AXIS));
         Iterator<String> iterator = users.iterator();
-
-        int i =0;
-        while (iterator.hasNext()) {
+        int i = 0;
+        while(iterator.hasNext()){
             String userName = iterator.next();
-            userLabels[i] =new JLabel(userName);
+            userLabels[i] = new JLabel(userName);
+            //添加标签点击事件
             userLabels[i].addMouseListener(new PrivateLabelAction(userName));
             friends.add(userLabels[i]);
             i++;
         }
-
         friendsList.setViewportView(friends);
+        //设置滚动条垂直滚动
         friendsList.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //刷新界面
         friends.revalidate();
         friendsList.revalidate();
     }

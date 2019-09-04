@@ -6,17 +6,14 @@ import com.cao.client.entiy.User;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
+
 
 public class UserReg {
     private JPanel userRegPanel;
-    private JLabel userName;
-    private JLabel passWord;
     private JTextField userNameTextField;
     private JPasswordField passwordField1;
-    private JTextField briefTextField;
-    private JLabel brief;
-    private JButton 注册;
+    private JTextField briefText;
+    private JButton regBtn;
     private AccountDao accountDao = new AccountDao();
 
     public UserReg(){
@@ -27,13 +24,13 @@ public class UserReg {
         frame.pack();
         frame.setVisible(true);
         //点击注册按钮将信息持久化到DB中,成功弹出提示框
-        注册.addActionListener(new ActionListener() {
+        regBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //获取用户输入的注册信息
                 String userName = userNameTextField.getText();
                 String password = String.valueOf(passwordField1.getPassword());
-                String brief = briefTextField.getText();
+                String brief = briefText.getText();
                 User user = new User();
                 user.setUserName(userName);
                 user.setPassword(password);

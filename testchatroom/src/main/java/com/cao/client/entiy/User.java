@@ -1,5 +1,7 @@
 package com.cao.client.entiy;
 
+import java.util.Set;
+
 public class User {
     private Integer id;
     private String userName;
@@ -36,5 +38,15 @@ public class User {
 
     public void setBrief(String brief) {
         this.brief = brief;
+    }
+    private Set<String> userNames;
+
+
+    public Set<String> getUserNames() {
+        return userNames;
+    }
+
+    public void setUserNames(Set<String> userNames) {
+        this.userNames = userNames;
     }
 }

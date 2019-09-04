@@ -19,10 +19,9 @@ public class userLogin {
     private JPanel userNamePanel;
     private JPanel userN;
     private JTextField userNameText;
-    private JTextField passwordTextField;
     private JButton regButton;
     private JButton loginButton;
-    private JPasswordField passwordField1;
+    private JPasswordField passwordtEXTField;
     AccountDao accountDao = new AccountDao();
 
     public userLogin() {
@@ -46,12 +45,13 @@ public class userLogin {
             public void actionPerformed(ActionEvent e) {
                 //去数据库检验用户信息
                 String userName = userNameText.getText();
-                String password = String.valueOf(passwordField1.getPassword());
+                String password = String.valueOf(passwordtEXTField.getPassword());
                 User user = accountDao.userLogin(userName,password);
                 if(user != null){
                     //成功，加载用户列表
 
                     JOptionPane.showMessageDialog(frame,"登录成功！","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    frame.setVisible(false);
                     //与服务器建立连接，将当前用户名与密码发送到服务端
                     ConnectToServer connectToServer = new ConnectToServer();
                     MessageVO msgToSever = new MessageVO();
@@ -78,7 +78,7 @@ public class userLogin {
                         e1.printStackTrace();
                     }
                 }else{
-                    //失败，停留登录页面，并提示错误信息
+                    //失败，返回登录页面，并提示错误信息
                     JOptionPane.showMessageDialog(frame,"登录失败","错误信息",JOptionPane.ERROR_MESSAGE);
                 }
             }

@@ -2,7 +2,6 @@ package com.cao.client.dao;
 
 import com.cao.client.entiy.User;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.junit.Test;
 
 import java.sql.*;
 
@@ -14,7 +13,7 @@ public class AccountDao extends BasedDao {
         try {
             connection =getConnection();
             String sql ="insert  into user(username, password, brief) "+"value (?,?,?)";
-            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(sql,statement.RETURN_GENERATED_KEYS);
             statement.setString(1,user.getUserName());
             statement.setString(2,DigestUtils.md5Hex(user.getPassword()));
             statement.setString(3,user.getBrief());

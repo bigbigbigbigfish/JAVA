@@ -86,8 +86,7 @@ public class FriendsList {
                             }else{
                                 //若群成员第一次收到群聊消息
                                 //1.将群名称以及群成员保存到当前客户端群聊列表
-                                Set<String> friends = (Set<String>) CommUtils.JsonToObject(messageVO.getTo().split("-")[1],
-                                        Set.class);
+                                Set<String> friends = (Set<String>) CommUtils.JsonToObject(messageVO.getTo().split("-")[1], Set.class);
                                 groupList.put(groupName,friends);
                                 loadGroupList();
                                 //2.弹出群聊界面
@@ -197,8 +196,7 @@ public class FriendsList {
     }
 }
 
-    public FriendsList(final String userName, final Set<String> users,
-                       ConnectToServer connect2Server) {
+    public FriendsList(final String userName, final Set<String> users, ConnectToServer connect2Server) {
         this.userName = userName;
         this.users = users;
         this.connectToServer = connect2Server;
@@ -272,6 +270,7 @@ public class FriendsList {
         groupListPanel.revalidate();
     }
     public void addGroup(String groupName,Set<String> friends){
+
         groupList.put(groupName,friends);
     }
 }

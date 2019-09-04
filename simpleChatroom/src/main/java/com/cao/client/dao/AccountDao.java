@@ -3,12 +3,8 @@ package com.cao.client.dao;
 
 import com.cao.client.entity.User;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class AccountDao extends BasedDao {
     //用户注册(insert)
@@ -18,7 +14,7 @@ public class AccountDao extends BasedDao {
         try {
             connection = getConnection();
             String sql = "INSERT INTO user(username,password,brief)" + "VALUES (?,?,?)";
-            statement = connection.prepareStatement(sql,statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1,user.getUserName());
             //密码加密
             statement.setString(2,DigestUtils.md5Hex(user.getPassWord()));
@@ -42,7 +38,7 @@ public class AccountDao extends BasedDao {
         ResultSet resultSet = null;
         try {
             connection = getConnection();
-            String sql = "SELECT * FROM user WHERE username =?AND password =?";
+                String sql = "SELECT * FROM user WHERE username =?AND password =?";
             statement = connection.prepareStatement(sql);
             statement.setString(1,userName);
             statement.setString(2,DigestUtils.md5Hex(password));
